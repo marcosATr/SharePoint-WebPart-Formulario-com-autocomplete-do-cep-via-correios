@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "form-pn-p-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/formPnP/FormPnPWebPart.js",
+          "manifest": "./src/webparts/formPnP/FormPnPWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "FormPnPWebPartStrings": "lib/webparts/formPnP/loc/{locale}.js"
+  }
+}

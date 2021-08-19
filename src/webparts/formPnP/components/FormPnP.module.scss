@@ -1,0 +1,115 @@
+@import "~office-ui-fabric-react/dist/sass/References.scss";
+.formPnP {
+  * {
+    box-sizing: border-box;
+  }
+  $base-font: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  $base-color: #144372;
+  $text-color: #61676c;
+  $contrast-color: #f8f9fb;
+
+  .container {
+    max-width: 700px;
+    margin: 0px auto;
+    font: $base-font;
+    font-weight: 400;
+    // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  @mixin row {
+    @include ms-Grid-row;
+    @include ms-fontColor-white;
+    background-color: white;
+    padding: 20px;
+  }
+  .row {
+    @include row;
+  }
+
+  // .column {
+  //   @include ms-Grid-col;
+  //   @include ms-lg10;
+  //   @include ms-xl8;
+  //   @include ms-xlPush2;
+  //   @include ms-lgPush1;
+  // }
+
+  .title {
+    @include ms-font-xl;
+    color: $base-color;
+    font-weight: 700;
+    padding: 10px;
+  }
+
+  .subTitle {
+    @include ms-font-l;
+    color: $text-color;
+    padding: 10px;
+    font-weight: 400;
+  }
+  .w25 {
+    width: 25%;
+  }
+  .w50 {
+    width: 50%;
+  }
+  .w100 {
+    width: 100%;
+  }
+  .description {
+    @include ms-font-l;
+  }
+  .mainForm {
+    .formRow {
+      display: flex;
+    }
+    .formRow > div {
+      padding: 10px;
+    }
+    label {
+      @include ms-font-m;
+      color: $text-color;
+      display: block;
+      margin: 5px 0;
+      font-weight: 700;
+    }
+    input {
+      background-color: $contrast-color;
+      color: $text-color;
+      border: none;
+      border-radius: 2px;
+      padding: 3px 15px;
+      height: 40px;
+      width: 100%;
+      font-weight: 400;
+    }
+  }
+
+  @media only screen and (max-width: 700px) {
+    .w25,
+    .w50,
+    .w100 {
+      width: 100%;
+    }
+    .formRow {
+      flex-wrap: wrap;
+    }
+  }
+
+  .button {
+    padding: 6px 18px;
+    color: $contrast-color;
+    background-color: $base-color;
+    text-transform: uppercase;
+    font-weight: bolder;
+    cursor: pointer;
+  }
+  .button:hover {
+    background-color: darken($base-color, 10%);
+  }
+  .buttonHolder {
+    @include row;
+    float: right;
+  }
+}
