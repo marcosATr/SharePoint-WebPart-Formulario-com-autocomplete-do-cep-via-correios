@@ -50,7 +50,7 @@ export default class FormPnP extends React.Component<IFormPnPProps, {}> {
           uf: response.uf,
         },
         isCepOk: true,
-        submitSuccess: true,
+        submitSuccess: false,
       });
 
       // if (!response.ok) {
@@ -62,6 +62,7 @@ export default class FormPnP extends React.Component<IFormPnPProps, {}> {
       console.log(error);
       this.setState({
         isCepOk: false,
+        submitSuccess: false,
       });
     }
   }
@@ -77,6 +78,12 @@ export default class FormPnP extends React.Component<IFormPnPProps, {}> {
 
     const newItem = this.state["formData"];
     await sp.web.lists.getByTitle("address").items.add(newItem);
+
+    this.setState({
+      formData: {},
+      isCepOk: false,
+      submitSuccess: true,
+    });
   }
 
   public render(): React.ReactElement<IFormPnPProps> {
@@ -108,6 +115,7 @@ export default class FormPnP extends React.Component<IFormPnPProps, {}> {
                     type="text"
                     id="Title"
                     name="Title"
+                    value={this.state["formData"].Title || ""}
                     onChange={(e) => {
                       this.updateFormData(e);
                     }}
@@ -119,6 +127,7 @@ export default class FormPnP extends React.Component<IFormPnPProps, {}> {
                     type="text"
                     id="last_name"
                     name="last_name"
+                    value={this.state["formData"].last_name || ""}
                     onChange={(e) => {
                       this.updateFormData(e);
                     }}
@@ -133,6 +142,7 @@ export default class FormPnP extends React.Component<IFormPnPProps, {}> {
                     type="text"
                     id="cep"
                     name="cep"
+                    value={this.state["formData"].cep || ""}
                     onChange={(e) => {
                       this.updateFormData(e);
                     }}
@@ -178,6 +188,7 @@ export default class FormPnP extends React.Component<IFormPnPProps, {}> {
                   <input
                     type="text"
                     id="numero"
+                    value={this.state["formData"].numero || ""}
                     name="numero"
                     onChange={(e) => {
                       this.updateFormData(e);
